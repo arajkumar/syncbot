@@ -80,7 +80,7 @@ jobs:
       - name: Check openshift fork is upto date
         id: fork-sync
         run: |
-          AHEAD_BY=$(curl -s https://api.github.com/repos/${{ inputs.downstream }}/compare/{${{ inputs.downstream-branch }}}...{${{ steps.org.outputs.upstream }}: ${{steps.upstream.outputs.release }}} -o - | jq .ahead_by)
+          AHEAD_BY=$(curl -s "https://api.github.com/repos/${{ inputs.downstream }}/compare/{${{ inputs.downstream-branch }}}...{${{ steps.org.outputs.upstream }}:${{steps.upstream.outputs.release }}}" -o - | jq .ahead_by)
           if [ "${AHEAD_BY}" != "0" ]; then
             echo "::set-output name=status::outdated"
           else
