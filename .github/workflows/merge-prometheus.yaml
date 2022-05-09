@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * *' #@daily
 jobs:
   prometheus-merge:
-    uses: rhobs/syncbot/.github/workflows/merge-flow.yaml@main
+    uses: arajkumar/syncbot/.github/workflows/merge-flow.yaml@main
     with:
       upstream: prometheus/prometheus
       downstream: openshift/prometheus
